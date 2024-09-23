@@ -31,6 +31,11 @@ class DynamicArrayList:
          # strategyA: Incremental: increase the size of eowl[] by 10
         self.size_limit += 10
 
+    def increase_size_by_double(self):
+        #Increase strategyB: Doubling: double the size of eowl[]
+        self.size_limit *= 2
+    
+
 dynamic_array_list = DynamicArrayList()
 
 words = ['yellow', 'red', "pink"]
