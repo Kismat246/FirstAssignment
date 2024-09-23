@@ -17,8 +17,7 @@ class DynamicArrayList:
 
     
     def resize(self):
-        # strategyA: Incremental: increase the size of eowl[] by 10
-        self.size_limit += 10
+        self.increase_size_by_10()
         new_eowl = [None] * self.size_limit
 
         #copying the previous array items to new array
@@ -28,6 +27,9 @@ class DynamicArrayList:
         #replacing the previous array with new large array
         self.eowl = new_eowl
 
+    def increase_size_by_10(self):
+         # strategyA: Incremental: increase the size of eowl[] by 10
+        self.size_limit += 10
 
 dynamic_array_list = DynamicArrayList()
 
