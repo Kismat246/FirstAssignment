@@ -1,14 +1,39 @@
 class DynamicArrayList:
 
     def __init__(self, initial_size=2):
-        self.array = [None, None]
+        self.eowl = [None, None]
         self.size = 0
         self.size_limit = initial_size
 
     def __str__(self):
-        return f"{self.array} {self.size} {self.size_limit}"
+        return f"{self.eowl} {self.size} {self.size_limit}"
     
-    def resize():
-        print('resize')
+    def add_word(self, word):
+        if(self.size == self.size_limit):
+            self.resize()
+
+        self.eowl[self.size] = word
+        self.size += 1 
+
+    
+    def resize(self):
+        # strategyA: Incremental: increase the size of eowl[] by 10
+        self.size_limit += 10
+        new_eowl = [None] * self.size_limit
+
+        #copying the previous array items to new array
+        for idx in range(self.size):
+            new_eowl[idx] = self.eowl[idx]
+        
+        #replacing the previous array with new large array
+        self.eowl = new_eowl
+
 
 dynamic_array_list = DynamicArrayList()
+
+words = ['yellow', 'red', "pink"]
+
+for word in words:
+    dynamic_array_list.add_word(word)
+
+print(dynamic_array_list.eowl)
